@@ -1,0 +1,458 @@
+<div class="grid p-fluid">
+    <div class="col-12 xl:col-8">
+        <div
+            class="card h-18rem border-none flex justify-content-between align-items-center"
+            style="background-color: transparent"
+        >
+            <div>
+                <h1 class="text-7xl">
+                    {{ dataWeather?.location?.name }}
+                </h1>
+                <span class="text-4xl text-500">{{
+                    dataWeather?.current?.condition?.text
+                }}</span>
+                <div class="text-7xl text-900">
+                    <span class="mr-6"
+                        >{{ dataWeather?.current?.temp_c
+                        }}<sup class="text-4xl">o</sup>C</span
+                    >
+                    <span
+                        >{{ dataWeather?.current?.temp_f
+                        }}<sup class="text-4xl">o</sup>F</span
+                    >
+                </div>
+            </div>
+            <div>
+                <img
+                    class="w-12rem h-12rem"
+                    src="{{ dataWeather?.current?.condition.icon }}"
+                    alt="sun"
+                />
+            </div>
+        </div>
+        <div class="card min-h-18rem">
+            <span class="uppercase text-2xl font-semibold text-900"
+                >air conditions</span
+            >
+            <div class="flex flex-wrap h-full py-3 capitalize text-xl text-500">
+                <div class="w-6">
+                    Real Fell
+                    <h2 class="mr-6">
+                        {{ dataWeather?.current?.feelslike_c
+                        }}<sup class="text-xs"> o</sup>C
+                    </h2>
+                </div>
+                <div class="w-6">
+                    Wind
+                    <h2 class="mr-6">
+                        {{ dataWeather?.current?.wind_kph
+                        }}<span class="text-3xl lowercase"> km/h </span>
+                    </h2>
+                </div>
+                <div class="w-6">
+                    Humidity
+                    <h2 class="mr-6">
+                        {{ dataWeather?.current?.humidity
+                        }}<span class="text-3xl"> %</span>
+                    </h2>
+                </div>
+                <div class="w-6">
+                    UV Index
+                    <h2 class="mr-6">{{ dataWeather?.current?.uv }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="card h-auto">
+            <div
+                class="text-2xl text-500 flex align-items-center justify-content-start gap-3"
+            >
+                <span class="uppercase font-semibold text-900"
+                    >today's forecast :</span
+                >
+                <span class="capitalize ml-2">{{
+                    dataWeather?.forecast?.forecastday[0].day.condition.text
+                }}</span>
+                <img
+                    src="{{
+                        dataWeather?.forecast?.forecastday[0].day.condition.icon
+                    }}"
+                />
+            </div>
+            <div class="flex flex-wrap justify-content-center gap-5">
+                <div class="flex gap-2">
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">00:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[0]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[0]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">04:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[4]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[4]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">08:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[8]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[8]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">12:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[12]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[12]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">15:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[15]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[15]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">18:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[18]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[18]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">20:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[20]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[20]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                    <div
+                        class="weather-time w-7rem h-10rem flex flex-column align-items-center text-2xl"
+                    >
+                        <span class="text-blue-600">23:00</span>
+                        <img
+                            class="w-6rem h-6rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[0].hour[23]
+                                    .condition.icon
+                            }}"
+                            alt=""
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0].hour[23]
+                                    .temp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 xl:col-4">
+        <div class="card min-h-full text-500">
+            <span class="uppercase text-2xl font-semibold text-900"
+                >7-day forecast</span
+            >
+            <div class="mt-4 text-2xl">
+                <div
+                    class="w-full h-7rem flex align-items-center justify-content-between text-xl text-center border-bottom-2"
+                >
+                    <div class="text-700 font-semibold">Today</div>
+                    <span>
+                        {{
+                            dataWeather?.forecast?.forecastday[0]?.day
+                                ?.condition.text
+                        }}</span
+                    >
+                    <div class="flex align-items-center">
+                        <img
+                            class="w-4rem h-4rem"
+                            src=" {{
+                                dataWeather?.forecast?.forecastday[0]?.day
+                                    ?.condition.icon
+                            }}"
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[0]?.day
+                                    ?.mintemp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+                <div
+                    class="w-full h-7rem flex align-items-center justify-content-between text-xl text-center border-bottom-2"
+                >
+                    <span class="text-700 font-semibold">
+                        {{
+                            getDay(dataWeather?.forecast?.forecastday[1]?.date)
+                        }}</span
+                    >
+                    <span>
+                        {{
+                            dataWeather?.forecast?.forecastday[1]?.day
+                                ?.condition.text
+                        }}</span
+                    >
+                    <div class="flex align-items-center">
+                        <img
+                            class="w-4rem h-4rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[1]?.day
+                                    ?.condition.icon
+                            }}"
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[1]?.day
+                                    ?.mintemp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+                <div
+                    class="w-full h-7rem flex align-items-center justify-content-between text-xl text-center border-bottom-2"
+                >
+                    <span class="text-700 font-semibold">
+                        {{
+                            getDay(dataWeather?.forecast?.forecastday[2]?.date)
+                        }}</span
+                    >
+                    <span>
+                        {{
+                            dataWeather?.forecast?.forecastday[2]?.day
+                                ?.condition.text
+                        }}</span
+                    >
+                    <div class="flex align-items-center">
+                        <img
+                            class="w-4rem h-4rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[2]?.day
+                                    ?.condition.icon
+                            }}"
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[2]?.day
+                                    ?.mintemp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+                <div
+                    class="w-full h-7rem flex align-items-center justify-content-between text-xl text-center border-bottom-2"
+                >
+                    <span class="text-700 font-semibold">
+                        {{
+                            getDay(dataWeather?.forecast?.forecastday[3]?.date)
+                        }}</span
+                    >
+                    <span>
+                        {{
+                            dataWeather?.forecast?.forecastday[3]?.day
+                                ?.condition.text
+                        }}</span
+                    >
+                    <div class="flex align-items-center">
+                        <img
+                            class="w-4rem h-4rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[3]?.day
+                                    ?.condition.icon
+                            }}"
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[3]?.day
+                                    ?.mintemp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+                <div
+                    class="w-full h-7rem flex align-items-center justify-content-between text-xl text-center border-bottom-2"
+                >
+                    <span class="text-700 font-semibold">
+                        {{
+                            getDay(dataWeather?.forecast?.forecastday[4]?.date)
+                        }}</span
+                    >
+                    <span>
+                        {{
+                            dataWeather?.forecast?.forecastday[4]?.day
+                                ?.condition.text
+                        }}</span
+                    >
+                    <div class="flex align-items-center">
+                        <img
+                            class="w-4rem h-4rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[4]?.day
+                                    ?.condition.icon
+                            }}"
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[4]?.day
+                                    ?.mintemp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+                <div
+                    class="w-full h-7rem flex align-items-center justify-content-between text-xl text-center border-bottom-2"
+                >
+                    <span class="text-700 font-semibold">
+                        {{
+                            getDay(dataWeather?.forecast?.forecastday[5]?.date)
+                        }}</span
+                    >
+                    <span>
+                        {{
+                            dataWeather?.forecast?.forecastday[5]?.day
+                                ?.condition.text
+                        }}</span
+                    >
+                    <div class="flex align-items-center">
+                        <img
+                            class="w-4rem h-4rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[5]?.day
+                                    ?.condition.icon
+                            }}"
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[5]?.day
+                                    ?.mintemp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+                <div
+                    class="w-full h-7rem flex align-items-center justify-content-between text-xl text-center border-bottom-2"
+                >
+                    <span class="text-700 font-semibold">
+                        {{
+                            getDay(dataWeather?.forecast?.forecastday[6]?.date)
+                        }}</span
+                    >
+                    <span>
+                        {{
+                            dataWeather?.forecast?.forecastday[6]?.day
+                                ?.condition.text
+                        }}</span
+                    >
+                    <div class="flex align-items-center">
+                        <img
+                            class="w-4rem h-4rem"
+                            src="{{
+                                dataWeather?.forecast?.forecastday[6]?.day
+                                    ?.condition.icon
+                            }}"
+                        />
+                        <span
+                            >{{
+                                dataWeather?.forecast?.forecastday[6]?.day
+                                    ?.mintemp_c
+                            }}<sup class="text-xs"> o</sup>C</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

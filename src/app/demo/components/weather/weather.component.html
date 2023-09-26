@@ -1,0 +1,38 @@
+<div class="grid p-fluid">
+    <div
+        class="col-12"
+        *ngFor="let dataWeather of dataWeatherList; let i = index"
+    >
+        <div
+            class="card h-18rem flex justify-content-between align-items-center hover:border-cyan-500"
+            [ngClass]="i % 2 != 0 ? 'surface-ground right-0' : ''"
+            (click)="handleClickWeather(dataWeather?.location?.name)"
+        >
+            <div>
+                <h1 class="text-7xl">
+                    {{ dataWeather?.location?.name }}
+                </h1>
+                <span class="text-4xl text-500">{{
+                    dataWeather?.current?.condition?.text
+                }}</span>
+                <div class="text-7xl text-900">
+                    <span class="mr-6"
+                        >{{ dataWeather?.current?.temp_c
+                        }}<sup class="text-4xl">o</sup>C</span
+                    >
+                    <span
+                        >{{ dataWeather?.current?.temp_f
+                        }}<sup class="text-4xl">o</sup>F</span
+                    >
+                </div>
+            </div>
+            <div>
+                <img
+                    class="w-12rem h-12rem"
+                    src="{{ dataWeather?.current?.condition.icon }}"
+                    alt="sun"
+                />
+            </div>
+        </div>
+    </div>
+</div>

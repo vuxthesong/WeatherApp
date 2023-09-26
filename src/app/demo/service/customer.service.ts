@@ -1,30 +1,56 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Customer } from '../api/customer';
+import { Customer } from '../interfaces/customer';
+import { StorageService } from './storage.service';
 
-@Injectable()
+const customerListStorageKey = 'customerList';
+
+const defaultCustomerListStorageKey: Customer[] = [];
+
+@Injectable({
+    providedIn: 'root',
+})
 export class CustomerService {
-
-    constructor(private http: HttpClient) { }
-
-    getCustomersSmall() {
-        return this.http.get<any>('assets/demo/data/customers-small.json')
-            .toPromise()
-            .then(res => res.data as Customer[])
-            .then(data => data);
+    customerList: Customer[];
+    constructor(private storageService: StorageService) {
+        this.customerList =
+            storageService.getData(customerListStorageKey) ||
+            defaultCustomerListStorageKey;
+        this.saveList();
     }
 
-    getCustomersMedium() {
-        return this.http.get<any>('assets/demo/data/customers-medium.json')
-            .toPromise()
-            .then(res => res.data as Customer[])
-            .then(data => data);
+    saveList(): void {
+        this.storageService.setData(customerListStorageKey, this.customerList);
     }
 
-    getCustomersLarge() {
-        return this.http.get<any>('assets/demo/data/customers-large.json')
-            .toPromise()
-            .then(res => res.data as Customer[])
-            .then(data => data);
+    getCustomerList(): Customer[] {
+        return this.customerList;
+    }
+
+    getCustomerById(customerId): Customer {
+        return this.customerList.find((customer) => customer.id === customerId);
+    }
+
+    checkCustomer(userName, password): Customer {
+        return this.customerList.find(
+            (customer) =>
+                customer.userName === userName && customer.password === password
+        );
+    }
+
+    addCustomer(customer: Customer): void {
+        this.customerList.push(customer);
+        this.saveList();
+    }
+
+    updateCustomer(customer: Customer, changes: Customer): void {
+        const index = this.customerList.indexOf(customer);
+        this.customerList[index] = { ...customer, ...changes };
+        this.saveList();
+    }
+
+    deleteCustomer(customer: Customer): void {
+        const index = this.customerList.indexOf(customer);
+        this.customerList.splice(index, 1);
+        this.saveList();
     }
 }
